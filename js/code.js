@@ -1,10 +1,14 @@
-var urlBase = 'http://COP4331-5.com/LAMPAPI';
+var urlBase = 'http://cop4331group2.com/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
 var firstName = "";
 var lastName = "";
 
+function doSignUp()
+{
+	window.location.href = "signup.html";
+}
 function doLogin()
 {
 	userId = 0;
