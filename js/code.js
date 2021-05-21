@@ -7,7 +7,7 @@ var lastName = "";
 
 function doSignUp()
 {
-	window.location.href = "signup.html";
+	alert('Hello world');
 }
 function doLogin()
 {
