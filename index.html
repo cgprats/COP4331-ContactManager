@@ -1,33 +1,64 @@
-
+<html lang="en" xmlns="http://w3.org/1999/html">
 <head>
 	<title>COP 4331 Group 2</title>
 	<link rel="icon" href="https://www.ucf.edu/brand/files/2016/07/BrandAsset_athletics-stackedUCF.jpg">
-	<script type="text/javascript" src="js/test.js"></script>
-   <!-- <link href="css/styles.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> -->
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 
-  <div class="imgcontainer">
-    <img src="images/avatar.jpg" alt="Avatar" class="avatar">
-  </div>
+<body>
+	<!-- Site Information -->
+	<h1>Welcome to the Personal Contact Manager</h1>
+	<p>If you have an account, please login below. Otherwise, register a new user.</p>
 
-  <div class="container">
-    <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="loginName" required>
+	<img src="images/avatar.jpg" alt="Site Avatar" class="avatar">
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="loginPassword" required>
+	<br>
 
-    <button type="submit" class="loginbtn" > Login </button>
-    
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me!!
-    </label> 
-  </div>
+	<!-- Login Existing User -->
+	<form style="float: left;" action="api_login_script_here" method="post">
+		<h2>Login:</h2>
 
-  <div class="container" style="background-color:#f1f1f1">
-	
-	<button type="button" id="signupbtn" class="buttons" onclick="window.location.href='signup.html';"> Sign Up </button>
-    <span class="psw"><pre></pre><a href="#">Whoops! Forgot my password!</a></span>
-  </div>
-</form>
+		<!-- Login Name -->
+		<label for="login">Login Name:</label>
+		<input type="text" id="login" name="login" required>
+
+		<!-- Password -->
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required><br><br>
+
+		<!-- Remember Login -->
+		<label for="remember">Remember Me:</label>
+		<input type="checkbox" checked="checked" name="remember">
+
+		<!-- Submit to PHP Script -->
+		<input type="submit" name="submit" value="submit">
+	</form>
+
+	<!-- Register New User -->
+	<form style="float: left;" action="api_register_script_here" method="post">
+		<h2>Register:</h2>
+
+		<!-- User First Name -->
+		<label for="first">First Name:</label>
+		<input type="text" id="first" name="first" required>
+
+		<!-- User Last Name -->
+		<label for="last">Last Name:</label>
+		<input type="text" id="last" name="last" required><br><br>
+
+		<!-- User Login Name -->
+		<label for="login">Login Name:</label>
+		<input type="text" id="login" name="login" required><br><br>
+
+		<!-- User Password -->
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required>
+
+		<!-- User Password Confirmation -->
+		<label for="password_confirm">Confirm Password:</label>
+		<input type="password" id="password_confirm" name="password_confirm" required><br><br>
+
+		<!-- Submit to PHP Script -->
+		<input type="submit" name="submit" value="submit">
+	</form>
+</body>
