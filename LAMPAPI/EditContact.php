@@ -13,6 +13,12 @@
 		$stmt = $conn->prepare("UPDATE contacts SET firstname=?, lastname=?, email=?, phone=? WHERE id=?");
 		$stmt->bind_param("ssssi", $inData["firstname"], $inData["lastname"], $inData["email"], $inData["phone"], $inData["id"]);
 		$stmt->execute();
+		
+		date_default_timezone_set(@date_default_timezone_get());
+		$stmt = $conn->prepare("UPDATE contacts SET lastedit = CURRENT_TIMESTAMP WHERE id=?");
+		$stmt->bind_param("s", $inData["id"]);
+		$stmt->execute();
+		
 		$stmt->close();
 		$conn->close();
 		returnWithError($inData["ContactsID"]);
