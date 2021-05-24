@@ -7,7 +7,7 @@
 	$firstName = $inData["firstname"];
 	$lastName = $inData["lastname"];
 
-	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331"); 	
+	$conn = new mysqli("localhost", "admin", "plsletM3in", "smallproject"); 	
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
