@@ -3,6 +3,7 @@
 	<title>COP 4331 Group 2</title>
 	<link rel="icon" href="https://www.ucf.edu/brand/files/2016/07/BrandAsset_athletics-stackedUCF.jpg">
 	<link rel="stylesheet" href="css/styles.css">
+	<script type="text/javascript" src="js/contactmanager.js"></script>
 </head>
 
 <body>
@@ -15,50 +16,50 @@
 	<br>
 
 	<!-- Login Existing User -->
-	<form style="float: left;" action="api_login_script_here" method="post">
+	<div id="loginDiv" style="float: left;">
 		<h2>Login:</h2>
 
 		<!-- Login Name -->
-		<label for="login">Login Name:</label>
-		<input type="text" id="login" name="login" required>
+		<label for="loginName">Login Name:</label>
+		<input type="text" id="loginName" name="loginName" placeholder="Login name">
 
 		<!-- Password -->
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required><br><br>
+		<input type="password" id="password" name="password" placeholder="Password"><br><br>
 
 		<!-- Remember Login -->
 		<label for="remember">Remember Me:</label>
 		<input type="checkbox" checked="checked" name="remember">
 
-		<!-- Submit to PHP Script -->
-		<input type="submit" name="submit" value="submit">
-	</form>
+		<!-- Submit to API -->
+		<button type="button" id="loginButton" onclick="doLogin();">Login</button>
+	</div>
 
 	<!-- Register New User -->
-	<form style="float: left;" action="api_register_script_here" method="post">
+	<div id="registerDiv" style="float: left;">
 		<h2>Register:</h2>
 
 		<!-- User First Name -->
-		<label for="first">First Name:</label>
-		<input type="text" id="first" name="first" required>
+		<label for="firstName">First Name:</label>
+		<input type="text" id="firstName" name="firstName" placeholder="First Name">
 
 		<!-- User Last Name -->
-		<label for="last">Last Name:</label>
-		<input type="text" id="last" name="last" required><br><br>
+		<label for="lastName">Last Name:</label>
+		<input type="text" id="lastName" name="lastName" placeholder="Last Name"><br><br>
 
 		<!-- User Login Name -->
-		<label for="login">Login Name:</label>
-		<input type="text" id="login" name="login" required><br><br>
+		<label for="loginName">Login Name:</label>
+		<input type="text" id="loginName" name="loginName" placeholder="Login name"><br><br>
 
 		<!-- User Password -->
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password" required>
+		<input type="password" id="password" name="password" placeholder="Password">
 
 		<!-- User Password Confirmation -->
 		<label for="password_confirm">Confirm Password:</label>
-		<input type="password" id="password_confirm" name="password_confirm" required><br><br>
+		<input type="password" id="password_confirm" name="password_confirm" placeholder="Confirm Password"><br><br>
 
 		<!-- Submit to PHP Script -->
-		<input type="submit" name="submit" value="submit">
+		<button type="button" id="registerButton" onclick="doRegister();">Register</button>
 	</form>
 </body>
