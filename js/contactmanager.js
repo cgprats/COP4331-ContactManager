@@ -90,7 +90,7 @@ function readCookie() {
 	userId = -1;
 	var data = document.cookie;
 	var splits = data.split(",");
-	
+
 	for (var i = 0; i < splits.length; i++) {
 		var thisOne = splits[i].trim();
 		var tokens = thisOne.split("=");
