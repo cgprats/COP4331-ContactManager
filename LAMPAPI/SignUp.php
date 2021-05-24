@@ -3,9 +3,8 @@
 
 	$inData = getRequestInfo();
 	
-	$id = 0;
-	$firstName = $inData["firstname"];
-	$lastName = $inData["lastname"];
+	$firstname = $inData["firstname"];
+	$lastname = $inData["lastname"];
 	$login = $inData["login"];
   	$password = $inData["password"];
 
@@ -17,7 +16,7 @@
 	else
 	{
 		$stmt = $conn->prepare("INSERT into users (firstname,lastname,login,password) VALUES(?,?,?,?)");
-		$stmt->bind_param("ss", $firstName, $lastName, $login, $password);
+		$stmt->bind_param("ss", $firstname, $lastname, $login, $password);
 		
 		$stmt->execute();
 		
