@@ -6,16 +6,18 @@
 	$id = 0;
 	$firstName = $inData["firstname"];
 	$lastName = $inData["lastname"];
+	$login = $inData["login"];
+    $password = $inData["password"];
 
-	$conn = new mysqli("localhost", "admin", "plsletM3in", "smallproject"); 	
+	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331"); 	
 	if( $conn->connect_error )
 	{
 		returnWithError( $conn->connect_error );
 	}
 	else
 	{
-		$stmt = $conn->prepare("INSERT id,firstname,lastname into users WHERE Login=? AND Password =?");
-		$stmt->bind_param("ss", $firstName, $lastName);
+		$stmt = $conn->prepare("INSERT into users (firstname,lastname,login,password) VALUES(?,?,?,?)");
+		$stmt->bind_param("ss", $firstName, $lastName, $login, $password);
 		
 		$stmt->execute();
 		
