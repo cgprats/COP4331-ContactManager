@@ -10,8 +10,8 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("UPDATE contacts SET firstname=?, lastname=?, email=?, phone=? WHERE fooid=?");
-		$stmt->bind_param("ssssi", $inData["firstname"], $inData["lastname"], $inData["email"], $inData["phone"], $inData["fooid"]);
+		$stmt = $conn->prepare("UPDATE contacts SET firstname=?, lastname=?, email=?, phone=? WHERE id=?");
+		$stmt->bind_param("ssssi", $inData["firstname"], $inData["lastname"], $inData["email"], $inData["phone"], $inData["id"]);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
