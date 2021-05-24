@@ -24,7 +24,7 @@
 		$stmt->close();
 		$conn->close();
 		
-		returnWithError("");
+		returnWithError("Yeet");
 	}
 	
 	function getRequestInfo()
