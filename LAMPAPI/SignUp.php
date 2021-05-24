@@ -3,9 +3,11 @@
 
 	$inData = getRequestInfo();
 	
-	$userid = 0;
-	$firstName = "";
-	$lastName = "";
+	$id = 0;
+	$firstName = $inData["firstname"];
+	$lastName = $inData["lastname"];
+	$login = $inData["login"];
+  	$password = $inData["password"];
 
 	$conn = new mysqli("localhost", "admin", "plsletM3in", "smallproject"); 	
 	if( $conn->connect_error )
@@ -14,22 +16,15 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("SELECT id,firstname,lastname FROM users WHERE login=? AND password =?");
-		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
+		$stmt = $conn->prepare("INSERT into users (firstname,lastname,login,password) VALUES(?,?,?,?)");
+		$stmt->bind_param("ss", $firstName, $lastName, $login, $password);
+		
 		$stmt->execute();
-		$result = $stmt->get_result();
-
-		if( $row = $result->fetch_assoc()  )
-		{
-			returnWithInfo( $row['firstname'], $row['lastname'], $row['id'] );
-		}
-		else
-		{
-			returnWithError("No Records Found");
-		}
-
+		
 		$stmt->close();
 		$conn->close();
+		
+		returnWithError("Yeet");
 	}
 	
 	function getRequestInfo()
@@ -45,7 +40,7 @@
 	
 	function returnWithError( $err )
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

@@ -1,22 +1,24 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$color = $inData["color"];
-	$userId = $inData["userId"];
+	$firstname = $inData["firstname"];
+	$lastname = $inData["lastname"];
+	$email = $inData["email"];
+	$phone = $inData["phone"];
 
-	$conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4331", "COP4331");
+	$conn = new mysqli("localhost", "admin", "plsletM3in", "smallproject"); 	
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
 	} 
 	else
 	{
-		$stmt = $conn->prepare("INSERT into Colors (UserId,Name) VALUES(?,?)");
-		$stmt->bind_param("ss", $userId, $color);
+		$stmt = $conn->prepare("INSERT into contacts (firstname,lastname,email,phone) VALUES(?,?,?,?)");
+		$stmt->bind_param("ss", $firstname, $lastname,$email,$phone);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
-		returnWithError("");
+		returnWithError("Yeet");
 	}
 
 	function getRequestInfo()
