@@ -22,7 +22,6 @@
 		if( $row = $result->fetch_assoc()  )
 		{
 			date_default_timezone_set(@date_default_timezone_get());
-			$date = new DateTime('2020-01-01 10:20:20');
 			$stmt = $conn->prepare("UPDATE users SET lastlogin = CURRENT_TIMESTAMP WHERE login=?");
 			$stmt->bind_param("s", $inData["login"]);
 			$stmt->execute();
