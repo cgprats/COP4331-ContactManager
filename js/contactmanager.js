@@ -63,12 +63,6 @@ function doRegister() {
 			if (this.readyState == 4 && this.status == 200) {
 				var jsonObject = JSON.parse(xhr.responseText);
 				userId = jsonObject.id;
-
-				if (userId < 1) {
-					document.getElementByID("loginResult").innerHTML = "User/Password combination incorrect";
-					return;
-				}
-
 				firstName = json.Object.firstName;
 				lastName = json.Object.lastName;
 
@@ -81,7 +75,7 @@ function doRegister() {
 	}
 
 	catch(err) {
-		document.getElementByID("loginResult").innerHTML = err.message;
+		document.getElementByID("registerResult").innerHTML = err.message;
 	}
 }
 
