@@ -6,7 +6,6 @@
 	$searchCount = 0;
 
 	$id = $inData["fooid"];
-	$search = "%" . $inData["search"] . "%";
 
 	$conn = new mysqli("localhost", "admin", "plsletM3in", "smallproject"); 
 	if ($conn->connect_error) 
