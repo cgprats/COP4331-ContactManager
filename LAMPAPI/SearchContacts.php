@@ -14,7 +14,7 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("SELECT * FROM contacts WHERE firstname LIKE ? && fooid =?");
+		$stmt = $conn->prepare("SELECT * FROM contacts WHERE firstname LIKE ? AND fooid =?");
 		$search = "%" . $inData["search"] . "%";
 		$stmt->bind_param("ss", $search, $id);
 		$stmt->execute();
