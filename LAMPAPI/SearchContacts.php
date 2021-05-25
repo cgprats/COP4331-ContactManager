@@ -14,7 +14,7 @@
 	{
 		$stmt = $conn->prepare("select * from contacts where (firstname like ? and fooid= ?) or (lastname like ? and fooid= ?)");
 		$search = "%" . $inData["search"] . "%";
-		$stmt->bind_param("ss", $search, $inData["fooid"]);
+		$stmt->bind_param("ssss", $search, $inData["fooid"], $search, $inData["fooid"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
