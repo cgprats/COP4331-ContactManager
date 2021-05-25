@@ -5,8 +5,6 @@
 	$searchResults = "";
 	$searchCount = 0;
 
-	$id = $inData["fooid"];
-
 	$conn = new mysqli("localhost", "admin", "plsletM3in", "smallproject"); 
 	if ($conn->connect_error) 
 	{
@@ -14,9 +12,9 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("SELECT * FROM contacts WHERE firstname LIKE ? AND fooid =?");
+		$stmt = $conn->prepare("select * from contacts where firstname like ?");
 		$search = "%" . $inData["search"] . "%";
-		$stmt->bind_param("ss", $search, $id);
+		$stmt->bind_param("s", $search);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
