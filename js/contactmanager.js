@@ -82,12 +82,12 @@ function doRegister() {
 			}
 		};
 		xhr.send(jsonPayload);
-		console.log("Registration Success");
+		window.alert("Registration Success");
 
 	}
 
 	catch(err) {
-		console.log("Registration Failed");
+		window.alert("Registration Failed");
 		document.getElementById("registerResult").innerHTML = err.message;
 	}
 }
