@@ -55,6 +55,7 @@ function doLogout()
 }
 
 function doRegister() {
+	console.log("Attempting Registration...");
 	firstName = document.getElementById("firstName").value;
 	lastName = document.getElementById("lastName").value
 	login = document.getElementById("registerLoginName").value;
@@ -66,7 +67,7 @@ function doRegister() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-
+	console.log("Trying to Register User...");
 	try {
 		xhr.onreadystatechange = function( ) {
 			if (this.readyState == 4 && this.status == 200) {
@@ -81,9 +82,12 @@ function doRegister() {
 			}
 		};
 		xhr.send(jsonPayload);
+		console.log("Registration Success");
+
 	}
 
 	catch(err) {
+		console.log("Registration Failed");
 		document.getElementById("registerResult").innerHTML = err.message;
 	}
 }
