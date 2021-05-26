@@ -46,10 +46,12 @@ function doLogin() {
 }
 
 function doRegister() {
+
 	firstName = document.getElementById("firstName").value;
 	lastName = document.getElementById("lastName").value
 	login = document.getElementById("loginName").value;
 	password = document.getElementById("password").value;
+
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastName" : "' + lastName + '"}';
 	var url = urlBase + '/SignUp.' + extension;
