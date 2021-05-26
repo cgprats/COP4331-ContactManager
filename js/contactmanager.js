@@ -8,8 +8,8 @@ var firstName = "";
 var lastName = "";
 
 function doLogin() {
-	login = document.getElementByID("loginName").value;
-	password = document.getElementByID("password").value;
+	login = document.getElementById("loginName").value;
+	password = document.getElementById("password").value;
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
 	var url = urlBase + '/Login.' + extension;
@@ -25,7 +25,7 @@ function doLogin() {
 				userId = jsonObject.id;
 
 				if (userId < 1) {
-					document.getElementByID("loginResult").innerHTML = "User/Password combination incorrect";
+					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return;
 				}
 
@@ -41,15 +41,17 @@ function doLogin() {
 	}
 
 	catch(err) {
-		document.getElementByID("loginResult").innerHTML = err.message;
+		document.getElementById("loginResult").innerHTML = err.message;
 	}
 }
 
 function doRegister() {
-	firstName = document.getElementByID("firstName").value;
-	lastName = document.getElementByID("lastName").value
-	login = document.getElementByID("registerName").value;
-	password = document.getElementByID("registerPassword").value;
+
+	firstName = document.getElementById("firstName").value;
+	lastName = document.getElementById("lastName").value
+	login = document.getElementById("loginName").value;
+	password = document.getElementById("password").value;
+
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastName" : "' + lastName + '"}';
 	var url = urlBase + '/SignUp.' + extension;
@@ -75,7 +77,7 @@ function doRegister() {
 	}
 
 	catch(err) {
-		document.getElementByID("registerResult").innerHTML = err.message;
+		document.getElementById("registerResult").innerHTML = err.message;
 	}
 }
 
@@ -113,6 +115,6 @@ function readCookie() {
 	}
 
 	else {
-		document.getElementByID("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
