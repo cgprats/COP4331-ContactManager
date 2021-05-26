@@ -12,7 +12,7 @@ function doLogin() {
 	password = document.getElementById("password").value;
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
-	var url = urlBase + '/Login.' + extension;
+	var url = urlBase + '/LAMPAPI/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -29,8 +29,8 @@ function doLogin() {
 					return;
 				}
 
-				firstName = json.Object.firstName;
-				lastName = json.Object.lastName;
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
 
 				saveCookie();
 
@@ -52,7 +52,7 @@ function doRegister() {
 	password = document.getElementById("registerPassword").value;
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastName" : "' + lastName + '"}';
-	var url = urlBase + '/SignUp.' + extension;
+	var url = urlBase + '/LAMPAPI/SignUp.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
