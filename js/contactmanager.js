@@ -29,8 +29,8 @@ function doLogin() {
 					return;
 				}
 
-				firstName = json.Object.firstName;
-				lastName = json.Object.lastName;
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
 
 				saveCookie();
 
