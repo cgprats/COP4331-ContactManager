@@ -48,7 +48,7 @@ function doLogin() {
 function doRegister() {
 	firstName = document.getElementById("firstName").value;
 	lastName = document.getElementById("lastName").value
-	login = document.getElementById("registerName").value;
+	login = document.getElementById("registerLoginName").value;
 	password = document.getElementById("registerPassword").value;
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastName" : "' + lastName + '"}';
