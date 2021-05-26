@@ -63,8 +63,8 @@ function doRegister() {
 			if (this.readyState == 4 && this.status == 200) {
 				var jsonObject = JSON.parse(xhr.responseText);
 				userId = jsonObject.id;
-				firstName = json.Object.firstName;
-				lastName = json.Object.lastName;
+				firstName = jsonObject.firstName;
+				lastName = jsonObject.lastName;
 
 				saveCookie();
 
