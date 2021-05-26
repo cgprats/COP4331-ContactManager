@@ -48,8 +48,8 @@ function doLogin() {
 function doRegister() {
 	firstName = document.getElementByID("firstName").value;
 	lastName = document.getElementByID("lastName").value
-	login = document.getElementByID("loginName").value;
-	password = document.getElementByID("password").value;
+	login = document.getElementByID("registerName").value;
+	password = document.getElementByID("registerPassword").value;
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastName" : "' + lastName + '"}';
 	var url = urlBase + '/SignUp.' + extension;
