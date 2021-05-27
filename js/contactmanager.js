@@ -61,7 +61,7 @@ function doRegister() {
 	login = document.getElementById("registerLoginName").value;
 	password = document.getElementById("registerPassword").value;
 
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastName" : "' + lastName + '"}';
+	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastname" : "' + lastName + '"}';
 	var url = urlBase + '/LAMPAPI/SignUp.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -73,12 +73,13 @@ function doRegister() {
 			if (this.readyState == 4 && this.status == 200) {
 				var jsonObject = JSON.parse(xhr.responseText);
 				userId = jsonObject.id;
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
+				firstName = jsonObject.firstname;
+				lastName = jsonObject.lastname;
 
 				saveCookie();
 
-				window.location.href = "contacts.html";
+				//window.location.href = "contacts.html";
+				window.location.href = "index.html"
 			}
 		};
 		xhr.send(jsonPayload);
