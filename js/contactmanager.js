@@ -93,6 +93,9 @@ function doRegister() {
 	}
 }
 
+function doSearch() {
+}
+
 function saveCookie() {
 	var minutes = 20;
 	var date = new Date();

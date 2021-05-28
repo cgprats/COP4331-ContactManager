@@ -1,10 +1,11 @@
-<html>
+<html lang="en" xmlns="http://w3.org/1999/html">
 <head>
-	<title>My Contacts</title>
+	<title>Contacts Management</title>
+	<link rel="icon" href="https://www.ucf.edu/brand/files/2016/07/BrandAsset_athletics-stackedUCF.jpg">
+	<link rel="stylesheet" href="css/styles.css">
 	<script type="text/javascript" src="js/contactmanager.js"></script>
-    <link href="css/styles.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	
+
+	<!-- Read User Cookie -->
 	<script type="text/javascript">
 	document.addEventListener('DOMContentLoaded', function() 
 	{
@@ -13,28 +14,44 @@
 	</script>
 	
 </head>
+
 <body>
+	<h1 id="title">Contacts Management</h1>
 
-<h1 id="title">My Contacts</h1>
+	<!-- Print User Information -->
+	<div id="loggedInDiv">
+		<span id="userName" style="color:lightgray"></span><br>
+		<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+	</div>
 
-<div id="loggedInDiv">
-	<span id="userName"></span><br />
-	<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
-</div>
+	<br>
 
-<div id="accessUIDiv">
-	<br />
+	<!-- Search Contacts -->
+	<div id="searchDiv">
+		<h2>Search Contacts</h1>
+		<input type="text" id="searchText" placeholder="First or Last Name of Search Contact"/>
+		<button type="button" id="searchButton" onclick="doSearch();">Search Contact</button><br />
+		<span id="searchResult"></span>
+		<p id="contactList"></p><br><br>
 
-	<input type="text" id="searchText" placeholder="Color To Search For"/>
-	<button type="button" id="searchColorButton" class="buttons" onclick="searchColor();"> Search Color </button><br />
-	<span id="colorSearchResult"></span>
-	<p id="colorList">
-	</p><br /><br />
+		<input type="text" id="colorText" placeholder="Color To Add">
+		<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Color </button><br />
+		<span id="colorAddResult"></span>
+	</div>
 
-	<input type="text" id="colorText" placeholder="Color To Add">
-	<button type="button" id="addColorButton" class="buttons" onclick="addColor();"> Add Color </button><br />
-	<span id="colorAddResult"></span>
-  
-</div>
+	<!-- Add Contacts -->
+	<div id="addContactDiv">
+		<h2>Add Contacts</h2>
+	</div>
+
+	<!-- Edit Contact -->
+	<div id="editContactDiv">
+		<h2>Edit Contact</h2>
+	</div>
+
+	<!-- Delete Contact -->
+	<div id="delContactDiv">
+		<h2>Delete Contact</h2>
+	</div>
 </body>
 </html>
