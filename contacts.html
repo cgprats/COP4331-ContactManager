@@ -38,6 +38,8 @@
 	<!-- Add Contacts -->
 	<div id="addContactDiv">
 		<h2>Add Contact</h2>
+		<p>Please fill in all fields.</p>
+		<p>Empty fields will use a default value.</p>
 
 		<!-- Contact First Name -->
 		<label for="contactFirstName">First Name:</label>
@@ -64,10 +66,12 @@
 	<!-- Edit Contact -->
 	<div id="editContactDiv">
 		<h2>Edit Contact</h2>
+		<p>Please fill in all fields.</p>
+		<p>Empty fields will use a default value.</p>
 
 		<!-- Contact id -->
-		<label for="contactEditID">Id of Contact to Edit:</label>
-		<input type="number" id="contactEditID" name="contactEditID">
+		<label for="contactEditID">ID:</label>
+		<input type="number" id="contactEditID" name="contactEditID"><br><br>
 
 		<!-- Contact First Name -->
 		<label for="contactEditFirstName">First Name:</label>
@@ -95,7 +99,7 @@
 		<h2>Delete Contact</h2>
 
 		<!-- Contact id -->
-		<label for="contactDeleteID">Id of Contact to Delete:</label>
+		<label for="contactDeleteID">ID:</label>
 		<input type="number" id="contactDeleteID" name="contactDeleteID">
 
 		<button type="button" id="deleteContactButton" onclick="deleteContact();">Delete Contact</button><br>
