@@ -95,7 +95,7 @@ function doRegister() {
 
 function doSearch() {
 	var srch = document.getElementById("searchText").value;
-	document.getElementId("searchResult").innerHTML = "";
+	document.getElementById("searchResult").innerHTML = "";
 	
 	var contactList = "";
 	
@@ -132,7 +132,6 @@ function doSearch() {
 	{
 		document.getElementById("searchResult").innerHTML = err.message;
 	}
-	
 }
 
 function saveCookie() {
