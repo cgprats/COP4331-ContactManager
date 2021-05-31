@@ -116,7 +116,7 @@ function doSearch() {
 				
 				if (jsonObject.error > "")
 				{
-					throw jsonObject.error;
+					document.getElementById("searchResult").innerHTML = jsonObject.error;
 				}
 				
 				for (var i = 0; i < jsonObject.results.length; i++)
