@@ -114,6 +114,11 @@ function doSearch() {
 				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse(xhr.responseText);
 				
+				if (jsonObject.error > "")
+				{
+					throw jsonObject.error;
+				}
+				
 				for (var i = 0; i < jsonObject.results.length; i++)
 				{
 					contactList += jsonObject.results[i];
