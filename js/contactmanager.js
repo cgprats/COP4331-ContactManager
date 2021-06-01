@@ -93,6 +93,36 @@ function doRegister() {
 	}
 }
 
+function addContact() {
+	var newFirstName = document.getElementById("contactFirstName").value;
+	var newLastName = document.getElementById("contactLastName").value;
+	var newEmail = document.getElementById("contactEmail").value;
+	var newPhone = document.getElementById("contactPhone").value;
+	document.getElementById("contactAddResult").innerHTML = "";
+	
+	var jsonPayload = '{"firstname" : "' + newFirstName + '", "lastname" : "' + newLastName + '", "email" : "' + newEmail + '", "phone" : "' + newPhone + '", "fooid" : ' + userId + '}';
+	var url = urlBase + '/LAMPAPI/AddContact.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactAddResult").innerHTML = err.message;
+	}
+}
+
 function doSearch() {
 	var srch = document.getElementById("searchText").value;
 	document.getElementById("searchResult").innerHTML = "";
@@ -117,6 +147,7 @@ function doSearch() {
 				if (jsonObject.error > "")
 				{
 					document.getElementById("searchResult").innerHTML = jsonObject.error;
+					return;
 				}
 				
 				for (var i = 0; i < jsonObject.results.length; i++)
