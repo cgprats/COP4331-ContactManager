@@ -204,6 +204,44 @@ function doSearch() {
 	}
 }
 
+function editContact() {
+	var editId = document.getElementById("contactEditID").value;
+	var newFirstName = document.getElementById("contactEditFirstName").value;
+	var newLastName = document.getElementById("contactEditLastName").value;
+	var newEmail = document.getElementById("contactEditEmail").value;
+	var newPhone = document.getElementById("contactEditPhone").value;
+	
+	if (newFirstName == "" || newLastName == "" || newEmail == "" || newPhone == "")
+	{
+		document.getElementById("contactEditResult").innerHTML = "All fields are required.";
+		return;
+	}
+	
+	document.getElementById("contactEditResult").innerHTML = "";
+	
+	var jsonPayload = '{"firstname" : "' + newFirstName + '", "lastname" : "' + newLastName + '", "email" : "' + newEmail + '", "phone" : "' + newPhone + '", "id" : ' + editId + '}';
+	var url = urlBase + '/LAMPAPI/EditContact.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactEditResult").innerHTML = "Contact has been edited";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactEditResult").innerHTML = err.message;
+	}
+}
+
 function saveCookie() {
 	var minutes = 20;
 	var date = new Date();
