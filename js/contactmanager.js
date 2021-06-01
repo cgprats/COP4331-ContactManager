@@ -131,7 +131,30 @@ function addContact() {
 }
 
 function deleteContact() {
+	var deleteId = document.getElementById("contactDeleteID").value;
+	document.getElementById("contactDeleteResult").innerHTML = "";
 	
+	var jsonPayload = '{"id" : ' + deleteId + '}';
+	var url = urlBase + '/LAMPAPI/DeleteContact.' + extension;
+	
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				document.getElementById("contactAddResult").innerHTML = "Contact has been deleted";
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("contactDeleteResult").innerHTML = err.message;
+	}
 }
 
 function doSearch() {
