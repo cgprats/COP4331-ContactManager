@@ -186,10 +186,10 @@ function doSearch() {
 				
 				for (var i = 0; i < jsonObject.results.length; i++)
 				{
-					contactList += "Name: " + jsonObject.results[i].lastname + ", " + jsonObject.results[i].firstname + "\n";
-					contactList += "Email: " + jsonObject.results[i].email + "\n";
-					contactList += "Phone: " + jsonObject.results[i].phone + "\n";
-					contactList += "ID: " + jsonObject.results[i].fooid;
+					contactList += "Name: " + jsonObject.results[i].lastname + ", " + jsonObject.results[i].firstname + "<br>";
+					contactList += "Email: " + jsonObject.results[i].email + "<br>";
+					contactList += "Phone: " + jsonObject.results[i].phone + "<br>";
+					contactList += "ID: " + jsonObject.results[i].id;
 					
 					if (i < jsonObject.results.length - 1)
 					{
