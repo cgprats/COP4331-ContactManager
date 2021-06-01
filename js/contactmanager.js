@@ -186,7 +186,11 @@ function doSearch() {
 				
 				for (var i = 0; i < jsonObject.results.length; i++)
 				{
-					contactList += jsonObject.results[i].firstname + " " + jsonObject.results[i].lastname;
+					contactList += "Name: " + jsonObject.results[i].lastname + ", " + jsonObject.results[i].firstname + "\n";
+					contactList += "Email: " + jsonObject.results[i].email + "\n";
+					contactList += "Phone: " + jsonObject.results[i].phone + "\n";
+					contactList += "ID: " + jsonObject.results[i].fooid;
+					
 					if (i < jsonObject.results.length - 1)
 					{
 						contactList += "<br />\r\n";
