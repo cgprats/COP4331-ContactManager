@@ -146,7 +146,7 @@ function deleteContact() {
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactAddResult").innerHTML = "Contact has been deleted";
+				document.getElementById("contactDeleteResult").innerHTML = "Contact has been deleted";
 			}
 		};
 		xhr.send(jsonPayload);
