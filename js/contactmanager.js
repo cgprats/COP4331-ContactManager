@@ -163,7 +163,7 @@ function doSearch() {
 	
 	var contactList = "";
 	
-	var jsonPayload = '{"search" : "' + srch + '","userId" : ' + userId + '}';
+	var jsonPayload = '{"search" : "' + srch + '", "fooid" : ' + userId + '}';
 	var url = urlBase + '/LAMPAPI/SearchContacts.' + extension;
 	
 	var xhr = new XMLHttpRequest();
