@@ -98,6 +98,13 @@ function addContact() {
 	var newLastName = document.getElementById("contactLastName").value;
 	var newEmail = document.getElementById("contactEmail").value;
 	var newPhone = document.getElementById("contactPhone").value;
+	
+	if (newFirstName == "" || newLastName == "" || newEmail == "" || newPhone == "")
+	{
+		document.getElementById("contactAddResult").innerHTML = "All fields are required.";
+		return;
+	}
+	
 	document.getElementById("contactAddResult").innerHTML = "";
 	
 	var jsonPayload = '{"firstname" : "' + newFirstName + '", "lastname" : "' + newLastName + '", "email" : "' + newEmail + '", "phone" : "' + newPhone + '", "fooid" : ' + userId + '}';
@@ -121,6 +128,10 @@ function addContact() {
 	{
 		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
+}
+
+function deleteContact() {
+	
 }
 
 function doSearch() {
