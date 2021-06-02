@@ -178,9 +178,10 @@ function doSearch() {
 				document.getElementById("searchResult").innerHTML = "Contact(s) has been retrieved";
 				var jsonObject = JSON.parse(xhr.responseText);
 				
-				if (jsonObject.error > "")
+				if (jsonObject.error != "")
 				{
 					document.getElementById("searchResult").innerHTML = jsonObject.error;
+					document.getElementsByTagName("p")[0].innerHTML = "";
 					return;
 				}
 				
@@ -189,7 +190,7 @@ function doSearch() {
 					contactList += "Name: " + jsonObject.results[i].lastname + ", " + jsonObject.results[i].firstname + "<br>";
 					contactList += "Email: " + jsonObject.results[i].email + "<br>";
 					contactList += "Phone: " + jsonObject.results[i].phone + "<br>";
-					contactList += "ID: " + jsonObject.results[i].id;
+					contactList += "ID: " + jsonObject.results[i].id + "<br>";
 					
 					if (i < jsonObject.results.length - 1)
 					{
