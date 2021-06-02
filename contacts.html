@@ -31,7 +31,7 @@
 		<h2>Search Contacts</h2>
 		<input type="text" id="searchText" placeholder="First or Last Name of Search Contact"/>
 		<button type="button" id="searchButton" onclick="doSearch();">Search Contact</button><br>
-		<span id="searchResult"></span>
+		<span id="searchResult" style="color:white"></span>
 		<p id="contactList"></p><br><br>
 	</div>
 
@@ -59,7 +59,7 @@
 
 		<!-- Submit to API -->
 		<button type="button" id="addContactButton" onclick="addContact();">Add Contact</button><br>
-		<span id="contactAddResult"></span>
+		<span id="contactAddResult" style="color:lightgreen;"></span>
 	</div>
 
 	<!-- Edit Contact -->
@@ -89,7 +89,7 @@
 		<input type="tel" minlength="9" maxlength="10" id="contactEditPhone" name="contactEditPhone" placeholder="123456789"><br><br>
 
 		<button type="button" id="editContactButton" onclick="editContact();">Edit Contact</button><br>
-		<span id="contactEditResult"></span>
+		<span id="contactEditResult" style="color:yellow"></span>
 	</div>
 
 	<!-- Delete Contact -->
@@ -101,7 +101,7 @@
 		<input type="number" id="contactDeleteID" name="contactDeleteID">
 
 		<button type="button" id="deleteContactButton" onclick="deleteContact();">Delete Contact</button><br>
-		<span id="contactDeleteResult"></span>
+		<span id="contactDeleteResult" style="color:red"></span>
 	</div>
 </body>
 </html>
