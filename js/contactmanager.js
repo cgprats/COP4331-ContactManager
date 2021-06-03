@@ -275,8 +275,8 @@ function doSearch() {
            					// Delete button
 						+ '<button type="button" id="deleteContactButton[' + i + ']" onclick="deleteContact(' + i + ', ' + fooId + ');">Delete</button><br>'
 						
-						// 
-						+ '<span id="contactEditResult[' + i + ']" style="color:yellow"></span>'
+						// Span text
+						+ '<span id="contactEditResult[' + i + ']" style="color:yellow"></span><br>';
 					
 					if (i < jsonObject.results.length - 1)
 					{
