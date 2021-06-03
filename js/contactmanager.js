@@ -218,6 +218,16 @@ function displayEdit(index, fooId, firstName, lastName, email, phone) {
 	document.getElementById("contactEditPhone").value = phone;
 }
 
+function hideEdit() {
+	document.getElementById("contactEditResult").innerHTML = "";
+	document.getElementById("editContactDiv").style.display = "none";
+
+	document.getElementById("contactEditFirstName").value = "";
+	document.getElementById("contactEditLastName").value = "";
+	document.getElementById("contactEditEmail").value = "";
+	document.getElementById("contactEditPhone").value = "";
+}
+
 function doSearch() {
 	var srch = document.getElementById("searchText").value;
 	document.getElementById("searchResult").innerHTML = "";
