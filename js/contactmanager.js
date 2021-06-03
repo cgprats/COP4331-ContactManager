@@ -7,6 +7,9 @@ var password = "";
 var firstName = "";
 var lastName = "";
 
+// This keeps track of the last index that was edited
+var editIndex = 0;
+
 function doLogin() {
 	login = document.getElementById("loginName").value;
 	password = document.getElementById("password").value;
@@ -130,9 +133,12 @@ function addContact() {
 	}
 }
 
-function deleteContact(deleteId) {
-	//var deleteId = document.getElementById("contactDeleteID").value;
-	document.getElementById("contactDeleteResult").innerHTML = "";
+function deleteContact(index, deleteId) {
+	// Reset the span text of last edited index
+	document.getElementById("contactEditResult[" + editIndex + "]").innerHTML = "";
+	editIndex = index;
+	
+	document.getElementById("contactEditResult[" + index + "]").innerHTML = "";
 	
 	var jsonPayload = '{"id" : ' + deleteId + '}';
 	var url = urlBase + '/LAMPAPI/DeleteContact.' + extension;
@@ -146,18 +152,18 @@ function deleteContact(deleteId) {
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("contactDeleteResult").innerHTML = "Contact has been deleted";
+				document.getElementById("contactEditResult[" + index + "]").innerHTML = "Contact has been deleted";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("contactDeleteResult").innerHTML = err.message;
+		document.getElementById("contactEditResult[" + index + "]").innerHTML = err.message;
 	}
 }
 
-function editContact(fooid) {
+function editContact(index, fooid) {
 	var newFirstName = document.getElementById("contactEditFirstName").value;
 	var newLastName = document.getElementById("contactEditLastName").value;
 	var newEmail = document.getElementById("contactEditEmail").value;
@@ -184,7 +190,8 @@ function editContact(fooid) {
 			{
 				if (this.readyState == 4 && this.status == 200) 
 				{
-					document.getElementById("contactEditResult").innerHTML = "Contact has been edited";
+					document.getElementById("contactEditResult[" + index + "]").innerHTML = "Contact has been edited";
+					document.getElementById("editContactDiv").style.display = "none";
 				}
 			};
 			xhr.send(jsonPayload);
@@ -196,11 +203,15 @@ function editContact(fooid) {
 	}
 }
 
-function displayEdit(fooId, firstName, lastName, email, phone) {
+function displayEdit(index, fooId, firstName, lastName, email, phone) {
+	// Reset the span text of last edited index
+	document.getElementById("contactEditResult[" + editIndex + "]").innerHTML = "";
+	editIndex = index;
+	
 	document.getElementById("contactEditResult").innerHTML = "";
 	document.getElementById("editContactDiv").style.display = "block";
 	
-	document.getElementById("editContactButton").onclick = function () { editContact(fooId) };
+	document.getElementById("editContactButton").onclick = function () { editContact(index, fooId) };
 	document.getElementById("contactEditFirstName").value = firstName;
 	document.getElementById("contactEditLastName").value = lastName;
 	document.getElementById("contactEditEmail").value = email;
@@ -248,11 +259,14 @@ function doSearch() {
 						+ "Phone: " + fooPhone + "<br>"
                    
             					// Edit button
-						+ '<button type="button" id="editContactButton[' + i + ']" onclick="displayEdit(' + fooId + ', &quot;'
+						+ '<button type="button" id="editContactButton[' + i + ']" onclick="displayEdit(' + i + ', ' + fooId + ', &quot;'
             					+ fooFirstName + '&quot;, &quot;' + fooLastName + '&quot;, &quot;' + fooEmail + '&quot;, ' + fooPhone + ');">Edit</button>'
                        
            					// Delete button
-						+ '<button type="button" id="deleteContactButton[' + i + ']" onclick="deleteContact(' + fooId + ');">Delete</button><br>';
+						+ '<button type="button" id="deleteContactButton[' + i + ']" onclick="deleteContact(' + i + ', ' + fooId + ');">Delete</button><br>'
+						
+						// 
+						+ '<span id="contactEditResult[' + i + ']" style="color:yellow"></span>'
 					
 					if (i < jsonObject.results.length - 1)
 					{
