@@ -34,7 +34,38 @@
 		<span id="searchResult" style="color:white"></span>
 		<p id="contactList"></p><br><br>
 	</div>
+	
+	<!-- Edit Contact -->
+	<div id="editContactDiv" style="float: left; display: none">
+		<h2>Edit Contact</h2>
+		<p>Please fill in all fields.<br>Empty fields will use a default value.</p>
 
+		<!-- Contact id               User should not interact with contact id 
+		<label for="contactEditID">ID:</label>
+		<input type="number" id="contactEditID" name="contactEditID"><br><br>
+		-->
+
+		<!-- Contact First Name -->
+		<label for="contactEditFirstName">First Name:</label>
+		<input type="text" id="contactEditFirstName" name="contactEditFirstName" placeholder="First Name">
+
+		<!-- Contact Last Name -->
+		<label for="contactEditLastName">Last Name:</label>
+		<input type="text" id="contactEditLastName" name="contactEditLastName" placeholder="Last Name"><br><br>
+
+
+		<!-- Contact Email -->
+		<label for="contactEditEmail">Email:</label>
+		<input type="email" id="contactEditEmail" name="contactEditEmail" placeholder="email@domain.tld">
+
+		<!-- Contact Phone Number -->
+		<label for="contactEditPhone">Phone:</label>
+		<input type="tel" minlength="9" maxlength="10" id="contactEditPhone" name="contactEditPhone" placeholder="123456789"><br><br>
+
+		<button type="button" id="editContactButton" onclick="editContact(fooid);">Edit Contact</button><br>
+		<span id="contactEditResult" style="color:yellow"></span>
+	</div>
+	
 	<!-- Add Contacts -->
 	<div id="addContactDiv" style="float: left;">
 		<h2>Add Contact</h2>
@@ -62,46 +93,16 @@
 		<span id="contactAddResult" style="color:lightgreen;"></span>
 	</div>
 
-	<!-- Edit Contact -->
-	<div id="editContactDiv" style="float: left;">
-		<h2>Edit Contact</h2>
-		<p>Please fill in all fields.<br>Empty fields will use a default value.</p>
-
-		<!-- Contact id -->
-		<label for="contactEditID">ID:</label>
-		<input type="number" id="contactEditID" name="contactEditID"><br><br>
-
-		<!-- Contact First Name -->
-		<label for="contactEditFirstName">First Name:</label>
-		<input type="text" id="contactEditFirstName" name="contactEditFirstName" placeholder="First Name">
-
-		<!-- Contact Last Name -->
-		<label for="contactEditLastName">Last Name:</label>
-		<input type="text" id="contactEditLastName" name="contactEditLastName" placeholder="Last Name"><br><br>
-
-
-		<!-- Contact Email -->
-		<label for="contactEditEmail">Email:</label>
-		<input type="email" id="contactEditEmail" name="contactEditEmail" placeholder="email@domain.tld">
-
-		<!-- Contact Phone Number -->
-		<label for="contactEditPhone">Phone:</label>
-		<input type="tel" minlength="9" maxlength="10" id="contactEditPhone" name="contactEditPhone" placeholder="123456789"><br><br>
-
-		<button type="button" id="editContactButton" onclick="editContact();">Edit Contact</button><br>
-		<span id="contactEditResult" style="color:yellow"></span>
-	</div>
-
-	<!-- Delete Contact -->
+	<!-- Delete Contact         Does not use delete division anymore
 	<div id="delContactDiv" style="float: left;">
-		<h2>Delete Contact</h2>
-
-		<!-- Contact id -->
+		<h2>Delete Contact</h2> -->
+		<!-- Contact id --> <!--
 		<label for="contactDeleteID">ID:</label>
 		<input type="number" id="contactDeleteID" name="contactDeleteID">
-
 		<button type="button" id="deleteContactButton" onclick="deleteContact();">Delete Contact</button><br>
 		<span id="contactDeleteResult" style="color:red"></span>
 	</div>
+	-->
+ 
 </body>
 </html>
