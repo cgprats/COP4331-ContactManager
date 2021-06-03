@@ -246,7 +246,6 @@ function doSearch() {
 					contactList += "Name: " + fooLastName + ", " + fooFirstName + "<br>"
 						+ "Email: " + fooEmail + "<br>"
 						+ "Phone: " + fooPhone + "<br>"
-						+ "ID: " + fooId + "<br>"
                    
             					// Edit button
 						+ '<button type="button" id="editContactButton[' + i + ']" onclick="displayEdit(' + fooId + ', &quot;'
