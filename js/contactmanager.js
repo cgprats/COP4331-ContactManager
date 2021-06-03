@@ -200,7 +200,7 @@ function displayEdit(fooId, firstName, lastName, email, phone) {
 	document.getElementById("contactEditResult").innerHTML = "";
 	document.getElementById("editContactDiv").style.display = "block";
 	
-	document.getElementById("editContactButton").onclick = editContact(fooId);
+	document.getElementById("editContactButton").onclick = function () { editContact(fooId) };
 	document.getElementById("contactEditFirstName").value = firstName;
 	document.getElementById("contactEditLastName").value = lastName;
 	document.getElementById("contactEditEmail").value = email;
