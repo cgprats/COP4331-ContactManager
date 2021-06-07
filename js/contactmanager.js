@@ -1,5 +1,6 @@
 var urlBase = 'https://cop4331group2.com';
 var extension = 'php';
+<script src="js/md5.js"></script>
 // Test Comment
 var userId = 0;
 var login = "";
