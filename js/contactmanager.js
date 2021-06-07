@@ -13,7 +13,10 @@ var editIndex = 0;
 function doLogin() {
 	login = document.getElementById("loginName").value;
 	password = document.getElementById("password").value;
-	password = md5(password);
+	//password = md5(password);
+	var hash = md5(password);
+	console.log(password);
+	console.log(hash);
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
 	var url = urlBase + '/LAMPAPI/Login.' + extension;
