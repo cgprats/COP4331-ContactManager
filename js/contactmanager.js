@@ -18,7 +18,7 @@ function doLogin() {
 	console.log(password);
 	console.log(hash);
 
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
+	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
 	var url = urlBase + '/LAMPAPI/Login.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -67,9 +67,9 @@ function doRegister() {
 	lastName = document.getElementById("lastName").value
 	login = document.getElementById("registerLoginName").value;
 	password = document.getElementById("registerPassword").value;
-	password = md5(password);
+	var hash = md5 (password);
 
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastname" : "' + lastName + '"}';
+	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '", "firstname" : "' + firstName + '", "lastname" : "' + lastName + '"}';
 	var url = urlBase + '/LAMPAPI/SignUp.' + extension;
 
 	var xhr = new XMLHttpRequest();
