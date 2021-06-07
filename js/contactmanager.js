@@ -13,6 +13,7 @@ var editIndex = 0;
 function doLogin() {
 	login = document.getElementById("loginName").value;
 	password = document.getElementById("password").value;
+	password = md5(password);
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
 	var url = urlBase + '/LAMPAPI/Login.' + extension;
@@ -63,6 +64,7 @@ function doRegister() {
 	lastName = document.getElementById("lastName").value
 	login = document.getElementById("registerLoginName").value;
 	password = document.getElementById("registerPassword").value;
+	password = md5(password);
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '", "firstname" : "' + firstName + '", "lastname" : "' + lastName + '"}';
 	var url = urlBase + '/LAMPAPI/SignUp.' + extension;
