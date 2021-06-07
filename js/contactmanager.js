@@ -1,6 +1,6 @@
 var urlBase = 'https://cop4331group2.com';
 var extension = 'php';
-# Test Comment
+// Test Comment
 var userId = 0;
 var login = "";
 var password = "";
