@@ -91,12 +91,13 @@ function doRegister() {
 			}
 		};
 		xhr.send(jsonPayload);
-		window.alert("Registration Success");
+		//window.alert("Registration Success");
+		document.getElementById("registerResult").innerHTML = "Registration Successful";
 
 	}
 
 	catch(err) {
-		window.alert("Registration Failed");
+		//window.alert("Registration Failed");
 		document.getElementById("registerResult").innerHTML = err.message;
 	}
 }
