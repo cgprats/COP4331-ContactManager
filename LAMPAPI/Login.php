@@ -29,7 +29,7 @@
 		}
 		else
 		{
-			returnWithError("No Records Found");
+			returnWithError("No Users Found");
 		}
 
 		$stmt->close();
