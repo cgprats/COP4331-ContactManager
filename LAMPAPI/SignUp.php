@@ -18,12 +18,16 @@
 		$stmt = $conn->prepare("INSERT into users (firstname,lastname,login,password) VALUES(?,?,?,?)");
 		$stmt->bind_param("ssss", $firstname, $lastname, $login, $password);
 		
-		$stmt->execute();
+		
+		$diditwork = $stmt->execute();
 		
 		$stmt->close();
 		$conn->close();
 		
-		returnWithError("Yeet");
+		if($diditwork)
+			returnWithError("Yeet");
+		else
+			returnWithError("NotYeet");
 	}
 	
 	function getRequestInfo()
