@@ -69,6 +69,7 @@ function doRegister() {
 	password = document.getElementById("registerPassword").value;
 	password_confirm = document.getElementByID("password_confirm").value;
 	if (password.localeCompare(password_confirm)) {
+		document.getElementById("registerResult").innerHTML = "Passwords Do Not Match!";
 		return;
 	}
 	var hash = md5 (password);
