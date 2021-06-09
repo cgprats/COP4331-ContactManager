@@ -83,6 +83,12 @@ function doRegister() {
 				userId = jsonObject.id;
 				firstName = jsonObject.firstname;
 				lastName = jsonObject.lastname;
+				var success = jsonObject.error;
+				
+				if (success.equals("NotYeet") {
+				    document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
+				    return;
+				}
 
 				saveCookie();
 
