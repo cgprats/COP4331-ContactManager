@@ -99,7 +99,7 @@ function doRegister() {
 		xhr.send(jsonPayload);
 		//window.alert("Registration Success");
 		document.getElementById("registerResult").innerHTML = "Registration Successful";
-		document.getElementByID("registerResult").innerHTML = created;
+		document.getElementById("registerResult").innerHTML = created;
 
 	}
 
