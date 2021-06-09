@@ -84,9 +84,9 @@ function doRegister() {
 				firstName = jsonObject.firstname;
 				lastName = jsonObject.lastname;
 				
-				if (jsonObject.error.equals("NotYeet") {
+				/*if (jsonObject.error.equals("NotYeet") {
 				    document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
-				}
+				}*/
 
 				saveCookie();
 
