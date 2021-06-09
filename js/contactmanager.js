@@ -67,7 +67,7 @@ function doRegister() {
 	lastName = document.getElementById("lastName").value
 	login = document.getElementById("registerLoginName").value;
 	password = document.getElementById("registerPassword").value;
-	password_confirm = document.getElementByID("password_confirm").value;
+	password_confirm = document.getElementById("password_confirm").value;
 	if (password.localeCompare(password_confirm)) {
 		document.getElementById("registerResult").innerHTML = "Passwords Do Not Match!";
 		return;
