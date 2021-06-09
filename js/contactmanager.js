@@ -80,9 +80,9 @@ function doRegister() {
 		xhr.onreadystatechange = function( ) {
 			if (this.readyState == 4 && this.status == 200) {
 				var jsonObject = JSON.parse(xhr.responseText);
-				userId = jsonObject.id;
+				/*userId = jsonObject.id;
 				firstName = jsonObject.firstname;
-				lastName = jsonObject.lastname;
+				lastName = jsonObject.lastname;*/
 				
 				if (jsonObject.error.equals("NotYeet")) {
 					document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
