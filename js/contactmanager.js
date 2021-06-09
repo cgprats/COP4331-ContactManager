@@ -87,7 +87,6 @@ function doRegister() {
 				
 				if (success.equals("NotYeet") {
 				    document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
-				    return;
 				}
 
 				saveCookie();
