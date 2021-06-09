@@ -67,6 +67,10 @@ function doRegister() {
 	lastName = document.getElementById("lastName").value
 	login = document.getElementById("registerLoginName").value;
 	password = document.getElementById("registerPassword").value;
+	password_confirm = document.getElementByID("password_confirm").value;
+	if (password.localeCompare(password_confirm)) {
+		return;
+	}
 	var hash = md5 (password);
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '", "firstname" : "' + firstName + '", "lastname" : "' + lastName + '"}';
