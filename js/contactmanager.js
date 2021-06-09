@@ -83,6 +83,8 @@ function doRegister() {
 				/*userId = jsonObject.id;
 				firstName = jsonObject.firstname;
 				lastName = jsonObject.lastname;*/
+				var success = jsonObject.error;
+				console.log("Result is " . success);
 				
 				if (jsonObject.error.equals("NotYeet")) {
 					document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
