@@ -86,7 +86,7 @@ function doRegister() {
 				var success = jsonObject.error;
 				console.log("Result is " . success);
 				
-				if (jsonObject.error.equals("NotYeet")) {
+				if (success.equals("NotYeet") {
 					document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
 					return;
 				}
