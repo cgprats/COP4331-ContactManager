@@ -13,6 +13,12 @@ var editIndex = 0;
 function doLogin() {
 	login = document.getElementById("loginName").value;
 	password = document.getElementById("password").value;
+	
+	if (login == "" || password == "") {
+		document.getElementById("loginResult").innerHTML = "All fields required.";
+		return;
+	}
+
 	//password = md5(password);
 	var hash = md5(password);
 	console.log(password);
@@ -68,6 +74,12 @@ function doRegister() {
 	login = document.getElementById("registerLoginName").value;
 	password = document.getElementById("registerPassword").value;
 	password_confirm = document.getElementById("password_confirm").value;
+	
+	if (firstName == "" || lastName == "" || login == "" || password == "" || password_confirm == "")
+	{
+		document.getElementById("registerResult").innerHTML = "All fields are required.";
+		return;
+	}
 	if (password.localeCompare(password_confirm)) {
 		document.getElementById("registerResult").innerHTML = "Passwords Do Not Match!";
 		return;
@@ -92,19 +104,47 @@ function doRegister() {
 				console.log(success);
 				
 				if (!success.localeCompare("NotYeet")) {
-					document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
+					document.getElementById("registerResult").innerHTML = "Login Name taken.";
 					return;
 				}
+        // Log user in
+        else
+        {
 
 				saveCookie();
 
 				//window.location.href = "contacts.html";
 				//window.location.href = "index.html"
+        	jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
+        	url = urlBase + '/LAMPAPI/Login.' + extension;
+        	
+        	xhr.open("POST", url, true);
+        
+        	try {
+        		xhr.onreadystatechange = function( ) {
+        			if (this.readyState == 4 && this.status == 200) {
+        				var jsonObject = JSON.parse(xhr.responseText);
+        				userId = jsonObject.id;
+        
+        				firstName = jsonObject.firstName;
+        				lastName = jsonObject.lastName;
+        
+        				saveCookie();
+        
+        				window.location.href = "contacts.html";
+        			}
+        		};
+        		xhr.send(jsonPayload);
+        	}
+        
+        	catch(err) {
+        		document.getElementById("loginResult").innerHTML = err.message;
+        	}
+        }
 			}
 		};
 		xhr.send(jsonPayload);
 		//window.alert("Registration Success");
-		document.getElementById("registerResult").innerHTML = "Registration Successful";
 	}
 
 	catch(err) {
@@ -154,6 +194,10 @@ function deleteContact(index, deleteId) {
 	// Reset the span text of last edited index
 	document.getElementById("contactEditResult[" + editIndex + "]").innerHTML = "";
 	editIndex = index;
+	
+	if (confirm("This contact will be permanently deleted.") == false) {
+		return;
+	}
 	
 	document.getElementById("contactEditResult[" + index + "]").innerHTML = "";
 	
