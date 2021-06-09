@@ -76,7 +76,7 @@ function doRegister() {
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	console.log("Trying to Register User...");
-	var created;
+	var created = "";
 	try {
 		xhr.onreadystatechange = function( ) {
 			if (this.readyState == 4 && this.status == 200) {
