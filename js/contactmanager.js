@@ -86,7 +86,7 @@ function doRegister() {
 				var success = jsonObject.error;
 				console.log(success);
 				
-				if (success.equals("NotYeet")) {
+				if (!success.localeCompare("NotYeet")) {
 					document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
 					return;
 				}
