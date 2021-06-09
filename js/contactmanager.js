@@ -76,7 +76,6 @@ function doRegister() {
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	console.log("Trying to Register User...");
-	var created = "";
 	try {
 		xhr.onreadystatechange = function( ) {
 			if (this.readyState == 4 && this.status == 200) {
@@ -84,11 +83,11 @@ function doRegister() {
 				userId = jsonObject.id;
 				firstName = jsonObject.firstname;
 				lastName = jsonObject.lastname;
-				created = jsonObject.error;
 				
-				/*if (jsonObject.error.equals("NotYeet") {
-				    document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
-				}*/
+				if (jsonObject.error.equals("NotYeet")) {
+					document.getElementById("registerResult").innerHTML = "Registration Unsuccessful";
+					return;
+				}
 
 				saveCookie();
 
@@ -99,8 +98,6 @@ function doRegister() {
 		xhr.send(jsonPayload);
 		//window.alert("Registration Success");
 		document.getElementById("registerResult").innerHTML = "Registration Successful";
-		document.getElementById("registerResult").innerHTML = created;
-
 	}
 
 	catch(err) {
